@@ -1,0 +1,55 @@
+diff --git a/node_modules/react-native-alert-notification/lib/typescript/containers/Dialog.d.ts b/node_modules/react-native-alert-notification/lib/typescript/containers/Dialog.d.ts
+index 5dda14f..fbbe221 100644
+--- a/node_modules/react-native-alert-notification/lib/typescript/containers/Dialog.d.ts
++++ b/node_modules/react-native-alert-notification/lib/typescript/containers/Dialog.d.ts
+@@ -5,9 +5,11 @@ export declare type IConfigDialog = {
+     title?: string;
+     textBody?: string;
+     button?: string;
++    cancelButton?: string;
+     autoClose?: number | boolean;
+     closeOnOverlayTap?: boolean;
+     onPressButton?: () => void;
++    onPressCancelButton?: () => void;
+     onShow?: () => void;
+     onHide?: () => void;
+ };
+diff --git a/node_modules/react-native-alert-notification/src/containers/Dialog.tsx b/node_modules/react-native-alert-notification/src/containers/Dialog.tsx
+index 1143bf6..40ded7a 100644
+--- a/node_modules/react-native-alert-notification/src/containers/Dialog.tsx
++++ b/node_modules/react-native-alert-notification/src/containers/Dialog.tsx
+@@ -8,9 +8,11 @@ export type IConfigDialog = {
+   title?: string;
+   textBody?: string;
+   button?: string;
++  cancelButton?: string;
+   autoClose?: number | boolean;
+   closeOnOverlayTap?: boolean;
+   onPressButton?: () => void;
++  onPressCancelButton?: () => void;
+   onShow?: () => void;
+   onHide?: () => void;
+ };
+@@ -178,8 +180,20 @@ export class Dialog extends React.Component<IProps, IState> {
+    */
+   private _buttonRender = (): JSX.Element => {
+     const { styles } = this.state;
+-    const { type, onPressButton, button } = this.state.config!;
+-    if (button) {
++    const { type, onPressButton, onPressCancelButton, cancelButton, button } = this.state.config!;
++    if (button && cancelButton) {
++      return (
++        <View style={{flexDirection : 'row' , justifyContent: 'space-between'}}>
++        <TouchableOpacity style={StyleSheet.flatten([styles.button, styles[type],{backgroundColor: "#E93353"}])} onPress={onPressCancelButton ?? this._close}>
++          <Text style={styles.buttonLabel}>{cancelButton}</Text>
++        </TouchableOpacity>
++        <TouchableOpacity style={StyleSheet.flatten([styles.button, styles[type]])} onPress={onPressButton ?? this._close}>
++          <Text style={styles.buttonLabel}>{button}</Text>
++        </TouchableOpacity>
++        </View>
++      );
++    }
++    if(button){
+       return (
+         <TouchableOpacity style={StyleSheet.flatten([styles.button, styles[type]])} onPress={onPressButton ?? this._close}>
+           <Text style={styles.buttonLabel}>{button}</Text>

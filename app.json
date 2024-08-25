@@ -1,0 +1,81 @@
+{
+  "expo": {
+    "name": "Antz Dev",
+    "slug": "antz-app",
+    "scheme": "antzapp",
+    "owner": "antzsystems",
+    "version": "1.7.4",
+    "orientation": "portrait",
+    "icon": "./assets/app_icons/icon_dev.png",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#1F415B"
+    },
+    "plugins": [
+      [
+        "@react-native-voice/voice",
+        {
+          "microphonePermission": "CUSTOM: Allow $(Antz_App) to access the microphone",
+          "speechRecognitionPermission": "CUSTOM: Allow $(Antz_App) to securely recognize user speech"
+        }
+      ],
+      [
+        "@sentry/react-native/expo",
+        {
+          "url": "https://sentry.io/",
+          "authToken": false,
+          "project": "antz-app",
+          "organization": "desuntechnology"
+        }
+      ],
+      [
+        "expo-build-properties",
+        {
+          "android": {
+            "useLegacyPackaging": true
+          }
+        }
+      ],
+      "expo-font"
+    ],
+    "updates": {
+      "fallbackToCacheTimeout": 0,
+      "url": "https://u.expo.dev/6d86f9b1-7355-4860-95ed-a4edba145ea2"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.antz",
+      "buildNumber": "3",
+      "infoPlist": {
+        "NSCameraUsageDescription": "This application allows you to scan QR codes and take photos."
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/app_icons/adaptive_icon_dev.png",
+        "backgroundColor": "#1F415B"
+      },
+      "package": "com.antz",
+      "googleServicesFile": "./google-services.json",
+      "permissions": [
+        "android.permission.RECORD_AUDIO"
+      ]
+    },
+    "web": {
+      "favicon": "./assets/icon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "ef8e0b99-5b7f-4ed1-b662-b05398c4ac3e"
+      }
+    },
+    "runtimeVersion": {
+      "policy": "sdkVersion"
+    },
+    "client": "antz"
+  }
+}

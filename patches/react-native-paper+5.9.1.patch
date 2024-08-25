@@ -1,0 +1,13 @@
+diff --git a/node_modules/react-native-paper/src/components/Card/CardCover.tsx b/node_modules/react-native-paper/src/components/Card/CardCover.tsx
+index 6b02fe4..9e7a376 100644
+--- a/node_modules/react-native-paper/src/components/Card/CardCover.tsx
++++ b/node_modules/react-native-paper/src/components/Card/CardCover.tsx
+@@ -55,7 +55,7 @@ const CardCover = ({
+     <View style={[styles.container, coverStyle, style]}>
+       <Image
+         {...rest}
+-        style={[styles.image, coverStyle]}
++        style={[styles.image, coverStyle,style]}
+         accessibilityIgnoresInvertColors
+       />
+     </View>

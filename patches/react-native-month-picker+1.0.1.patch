@@ -1,0 +1,13 @@
+diff --git a/node_modules/react-native-month-picker/src/MonthPicker/index.js b/node_modules/react-native-month-picker/src/MonthPicker/index.js
+index d051a84..7937507 100644
+--- a/node_modules/react-native-month-picker/src/MonthPicker/index.js
++++ b/node_modules/react-native-month-picker/src/MonthPicker/index.js
+@@ -34,7 +34,7 @@ class MonthPicker extends React.PureComponent {
+     ) {
+       return { backgroundColor: this.props.selectedBackgroundColor };
+     }
+-    return {};
++    return {backgroundColor:'#fff'};
+   }
+ 
+   getSelectedForeGround(month) {

@@ -1,0 +1,144 @@
+[
+  {
+    "id": "1",
+    "user": {
+      "id": "u2",
+      "name": "Ramij Dafadar",
+      "image": "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/lukas.jpeg",
+      "status": "Hey there!",
+      "bio": "Hey there! I am using Antz Chats."
+    },
+    "lastMessage": {
+      "id": "m1",
+      "text": "Hey there!",
+      "createdAt": "2022-10-14T13:30:00.000Z"
+    }
+  },
+  {
+    "id": "2",
+    "user": {
+      "id": "u3",
+      "name": "Pritam Khan",
+      "image": "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/1.jpg",
+      "bio": "Hey there! I am using Antz Chats."
+    },
+    "lastMessage": {
+      "id": "m2",
+      "text": "Hey there!",
+      "createdAt": "2022-10-14T10:48:00.000Z"
+    }
+  },
+  {
+    "id": "3",
+    "user": {
+      "id": "u4",
+      "name": "Shantanu Saha",
+      "image": "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/8.png",
+      "bio": "Hey there! I am using Antz Chats."
+    },
+    "lastMessage": {
+      "id": "m3",
+      "text": "Hey there!",
+      "createdAt": "2022-10-13T20:48:00.000Z"
+    }
+  },
+  {
+    "id": "4",
+    "user": {
+      "id": "u5",
+      "name": "Raja Mallick",
+      "image": "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/jeff.jpeg",
+      "bio": "Hey there! I am using Antz Chats."
+    },
+    "lastMessage": {
+      "id": "m4",
+      "text": "Hey there!",
+      "createdAt": "2022-10-12T14:48:00.000Z"
+    }
+  },
+  {
+    "id": "5",
+    "user": {
+      "id": "u6",
+      "name": "Arnab Gupta",
+      "image": "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/elon.png",
+      "bio": "Hey there! I am using Antz Chats."
+    },
+    "lastMessage": {
+      "id": "m5",
+      "text": "Hey there!",
+      "createdAt": "2022-10-11T14:48:00.000Z"
+    }
+  },
+  {
+    "id": "6",
+    "user": {
+      "id": "u7",
+      "name": "Tanmoy Dutta",
+      "image": "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/graham.jpg",
+      "bio": "Hey there! I am using Antz Chats."
+    },
+    "lastMessage": {
+      "id": "m6",
+      "text": "Hey there!",
+      "createdAt": "2022-10-10T14:48:00.000Z"
+    }
+  },
+  {
+    "id": "7",
+    "user": {
+      "id": "u8",
+      "name": "Rahul Saha",
+      "image": "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/zuck.jpeg",
+      "bio": "Hey there! I am using Antz Chats."
+    },
+    "lastMessage": {
+      "id": "m7",
+      "text": "Hey there!",
+      "createdAt": "2022-10-09T14:30:00.000Z"
+    }
+  },
+  {
+    "id": "8",
+    "user": {
+      "id": "u9",
+      "name": "Anirban Pan",
+      "image": "https://image.shutterstock.com/image-vector/super-mom-hero-superhero-cartoon-600w-720015928.jpg",
+      "bio": "Hey there! I am using Antz Chats."
+    },
+    "lastMessage": {
+      "id": "m8",
+      "text": "Hey there!",
+      "createdAt": "2020-09-27T15:40:00.000Z"
+    }
+  },
+  {
+    "id": "9",
+    "user": {
+      "id": "u9",
+      "name": "Pallabi Das",
+      "image": "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/4.jpg",
+      "bio": "Hey there! I am using Antz Chats."
+    },
+    "lastMessage": {
+      "id": "m8",
+      "text": "Hey there!",
+      "createdAt": "2020-09-27T15:40:00.000Z"
+    }
+  },
+  {
+    "id": "10",
+    "user": {
+      "id": "u9",
+      "name": "Joy Kumar Bera",
+      "image": "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/biahaze.jpg",
+      "bio": "Hey there! I am using Antz Chats."
+    },
+    "lastMessage": {
+      "id": "m8",
+      "text": "Hey there!",
+      "createdAt": "2020-09-27T15:40:00.000Z"
+    }
+  
+  }
+]

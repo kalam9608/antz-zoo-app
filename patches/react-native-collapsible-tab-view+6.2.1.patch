@@ -1,0 +1,103 @@
+diff --git a/node_modules/react-native-collapsible-tab-view/src/Container.tsx b/node_modules/react-native-collapsible-tab-view/src/Container.tsx
+index 1023290..ecaac39 100644
+--- a/node_modules/react-native-collapsible-tab-view/src/Container.tsx
++++ b/node_modules/react-native-collapsible-tab-view/src/Container.tsx
+@@ -1,4 +1,4 @@
+-import React from 'react'
++import React, { useState } from 'react'
+ import {
+   LayoutChangeEvent,
+   StyleSheet,
+@@ -87,7 +87,7 @@ export const Container = React.memo(
+       const containerRef = useContainerRef()
+ 
+       const [tabProps, tabNamesArray] = useTabProps(children, Tab)
+-
++      const [, setForceUpdate] = useState(0);
+       const [refMap, setRef] = useAnimatedDynamicRefs()
+ 
+       const windowWidth = useWindowDimensions().width
+@@ -210,12 +210,23 @@ export const Container = React.memo(
+       )
+ 
+       const propagateTabChange = React.useCallback(
+-        (change: IndexChangeEventData<TabName>) => {
+-          onTabChange?.(change)
+-          onIndexChange?.(change.index)
++        (newIndex: number) => { // Explicitly typing newIndex as number
++          const changeEvent = {
++            prevIndex: index.value,
++            index: newIndex,
++            prevTabName: tabNames.value[index.value],
++            tabName: tabNames.value[newIndex],
++          };
++          onTabChange?.(changeEvent);
++          onIndexChange?.(newIndex);
++          index.value = newIndex; // Directly set the new index
++          scrollYCurrent.value = scrollY.value[newIndex] || 0;
++          // Additional logic if needed for managing focus, animations, etc.
+         },
+-        [onIndexChange, onTabChange]
+-      )
++        [onIndexChange, onTabChange, tabNames.value]
++      );
++      
++      
+ 
+       useAnimatedReaction(
+         () => {
+@@ -225,12 +236,12 @@ export const Container = React.memo(
+           if (i !== index.value) {
+             offset.value =
+               scrollY.value[index.value] - scrollY.value[i] + offset.value
+-            runOnJS(propagateTabChange)({
+-              prevIndex: index.value,
+-              index: i,
+-              prevTabName: tabNames.value[index.value],
+-              tabName: tabNames.value[i],
+-            })
++            // runOnJS(propagateTabChange)({
++            //   prevIndex: index.value,
++            //   index: i,
++            //   prevTabName: tabNames.value[index.value],
++            //   tabName: tabNames.value[i],
++            // })
+             index.value = i
+             scrollYCurrent.value = scrollY.value[index.value] || 0
+           }
+@@ -291,24 +302,20 @@ export const Container = React.memo(
+       )
+ 
+       const onTabPress = React.useCallback(
+-        (name: TabName) => {
+-          const i = tabNames.value.findIndex((n) => n === name)
+-
+-          if (name === focusedTab.value) {
+-            const ref = refMap[name]
+-            runOnUI(scrollToImpl)(
+-              ref,
+-              0,
+-              headerScrollDistance.value - contentInset.value,
+-              true
+-            )
++        (name: string) => { // Assuming your tab names are strings
++          const newIndex = tabNames.value.findIndex((n) => n === name);
++          if (newIndex === index.value) {
++            // Logic for re-pressing the active tab
+           } else {
+-            containerRef.current?.setPage(i)
++            propagateTabChange(newIndex); // Pass the new index with explicit type
++            // Update UI components accordingly
++            containerRef.current?.setPage(newIndex);
+           }
+         },
+-        // eslint-disable-next-line react-hooks/exhaustive-deps
+-        [containerRef, refMap, contentInset]
+-      )
++        [propagateTabChange, tabNames.value]
++      );
++      
++      
+ 
+       React.useEffect(() => {
+         if (index.value >= tabNamesArray.length) {

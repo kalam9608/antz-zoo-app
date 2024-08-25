@@ -1,0 +1,127 @@
+[
+    {
+      "id": "1",
+      "user": {
+        "id": "u2",
+        "name": "Pritam Khan",
+        "image": "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/lukas.jpeg",
+        "status": "Hey there!",
+        "bio": "Hey there! I am using Antz Chats.",
+        "isSelected": "false"
+      }
+    },
+    {
+      "id": "2",
+      "user": {
+        "id": "u3",
+        "name": "Shantanu Saha",
+        "image": "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/1.jpg",
+        "bio": "Hey there! I am using Antz Chats.",
+        "isSelected": "false"
+      }
+    },
+    {
+      "id": "3",
+      "user": {
+        "id": "u4",
+        "name": "Arnab Gupta",
+        "image": "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/8.png",
+        "bio": "Hey there! I am using Antz Chats.",
+        "isSelected": "false"
+      }
+    },
+    {
+      "id": "4",
+      "user": {
+        "id": "u5",
+        "name": "Anirban Pan",
+        "image": "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/jeff.jpeg",
+        "bio": "Hey there! I am using Antz Chats.",
+        "isSelected": "false"
+      }
+    },
+    {
+      "id": "5",
+      "user": {
+        "id": "u6",
+        "name": "Tanmoy Dutta",
+        "image": "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/elon.png",
+        "bio": "Hey there! I am using Antz Chats.",
+        "isSelected": "false"
+      }
+    },
+    {
+      "id": "6",
+      "user": {
+        "id": "u7",
+        "name": "Sanchita Dey",
+        "image": "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/graham.jpg",
+        "bio": "Hey there! I am using Antz Chats.",
+        "isSelected": "false"
+      }
+    },
+    {
+      "id": "7",
+      "user": {
+        "id": "u8",
+        "name": "Raja Mallick",
+        "image": "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/zuck.jpeg",
+        "bio": "Hey there! I am using Antz Chats.",
+        "isSelected": "false"
+      }
+    },
+    {
+      "id": "8",
+      "user": {
+        "id": "u9",
+        "name": "MD Kalam Ansari",
+        "image": "https://image.shutterstock.com/image-vector/super-mom-hero-superhero-cartoon-600w-720015928.jpg",
+        "bio": "Hey there! I am using Antz Chats.",
+        "isSelected": "false"
+      }
+    },
+    {
+      "id": "9",
+      "user": {
+        "id": "u10",
+        "name": "Pallabi Das",
+        "image": "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/4.jpg",
+        "bio": "Hey there! I am using Antz Chats.",
+        "isSelected": "false"
+      }
+    },
+    {
+      "id": "10",
+      "user": {
+        "id": "u11",
+        "name": "Rahul Saha",
+        "image": "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/biahaze.jpg",
+        "bio": "Hey there! I am using Antz Chats.",
+        "isSelected": "false"
+      }
+    
+    },
+    {
+      "id": "11",
+      "user": {
+        "id": "u12",
+        "name": "Borsha Rani Ojha",
+        "image": "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/biahaze.jpg",
+        "bio": "Hey there! I am using Antz Chats.",
+        "isSelected": "false"
+      }
+    
+    },
+    {
+      "id": "12",
+      "user": {
+        "id": "u13",
+        "name": "Pravin Patel",
+        "image": "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/biahaze.jpg",
+        "bio": "Hey there! I am using Antz Chats.",
+        "isSelected": "false"
+      }
+    
+    }
+  ]
+  

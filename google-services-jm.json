@@ -1,0 +1,118 @@
+{
+  "project_info": {
+    "project_number": "116409476751",
+    "project_id": "antzapp-6bc9a",
+    "storage_bucket": "antzapp-6bc9a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:116409476751:android:67790ba0047da554e932fa",
+        "android_client_info": {
+          "package_name": "com.antz"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "116409476751-b0drap2k61a6ph722grf8lfi5sldats2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBypyoFbbm5OgeStN2LQVtN5yRT87fFKio"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "116409476751-b0drap2k61a6ph722grf8lfi5sldats2.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "116409476751-2mmefb5fvh3k6toa5rg0euu4p0vod0mk.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.antz"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:116409476751:android:2577a39f670ea242e932fa",
+        "android_client_info": {
+          "package_name": "com.antz.antzapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "116409476751-b0drap2k61a6ph722grf8lfi5sldats2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBypyoFbbm5OgeStN2LQVtN5yRT87fFKio"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "116409476751-b0drap2k61a6ph722grf8lfi5sldats2.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "116409476751-2mmefb5fvh3k6toa5rg0euu4p0vod0mk.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.antz"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:116409476751:android:702c5d00cd329721e932fa",
+        "android_client_info": {
+          "package_name": "com.ril.antz"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "116409476751-b0drap2k61a6ph722grf8lfi5sldats2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBypyoFbbm5OgeStN2LQVtN5yRT87fFKio"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "116409476751-b0drap2k61a6ph722grf8lfi5sldats2.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "116409476751-2mmefb5fvh3k6toa5rg0euu4p0vod0mk.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.antz"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

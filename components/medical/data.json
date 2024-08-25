@@ -1,0 +1,30 @@
+[
+  {
+    "id": "1",
+    "category": "Aquatic Specific Disorders",
+    "diagnosis": [ 
+      {
+        "id": "1",
+        "name": "Swim Bladder Disease1"
+      },
+      {
+        "id": "2",
+        "name": "Swim Bladder Disease2"
+      }
+    ]
+  },
+  {
+    "id": "2",
+    "category": "Bacterial Infection",
+    "diagnosis": [ 
+      {
+        "id": "3",
+        "name": "Swim Bladder Disease3"
+      },
+      {
+        "id": "4",
+        "name": "Swim Bladder Disease4"
+      }
+    ]
+  }
+]

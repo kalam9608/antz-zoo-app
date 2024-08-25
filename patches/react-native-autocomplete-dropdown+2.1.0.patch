@@ -1,0 +1,226 @@
+diff --git a/node_modules/react-native-autocomplete-dropdown/src/Dropdown.js b/node_modules/react-native-autocomplete-dropdown/src/Dropdown.js
+index 003dc6d..e9e826c 100644
+--- a/node_modules/react-native-autocomplete-dropdown/src/Dropdown.js
++++ b/node_modules/react-native-autocomplete-dropdown/src/Dropdown.js
+@@ -25,10 +25,11 @@ export const Dropdown = memo(
+           ...(position === 'relative'
+             ? { marginTop: 5 }
+             : {
+-                [direction === 'down' ? 'top' : 'bottom']: inputHeight + 5
++                [direction === 'down' ? 'top' : 'bottom']: inputHeight + 30
+               }),
+           ...props.suggestionsListContainerStyle
+-        }}>
++        }}
++        >
+         <FlatList
+           keyboardDismissMode="on-drag"
+           keyboardShouldPersistTaps="handled"
+@@ -37,7 +38,7 @@ export const Dropdown = memo(
+           data={dataSet}
+           style={{ maxHeight: suggestionsListMaxHeight }}
+           renderItem={renderItem}
+-          keyExtractor={item => item.id}
++          keyExtractor={item => item.id + Math.random()}
+           ListEmptyComponent={ListEmptyComponent}
+           ItemSeparatorComponent={ItemSeparatorComponent}
+           {...props.flatListProps}
+diff --git a/node_modules/react-native-autocomplete-dropdown/src/index.js b/node_modules/react-native-autocomplete-dropdown/src/index.js
+index 36efb60..5f4c92e 100644
+--- a/node_modules/react-native-autocomplete-dropdown/src/index.js
++++ b/node_modules/react-native-autocomplete-dropdown/src/index.js
+@@ -10,12 +10,13 @@ import React, {
+   useRef,
+   useState
+ } from 'react'
+-import { Dimensions, Keyboard, LogBox, Platform, TextInput, TouchableOpacity, View } from 'react-native'
++import { Dimensions, Keyboard, LogBox, Platform, TouchableOpacity, View } from 'react-native'
+ import { Dropdown } from './Dropdown'
+ import { moderateScale, ScaledSheet } from 'react-native-size-matters'
+ import { NothingFound } from './NothingFound'
+ import { RightButton } from './RightButton'
+ import { ScrollViewListItem } from './ScrollViewListItem'
++import { TextInput } from 'react-native-paper'
+ 
+ export const AutocompleteDropdown = memo(
+   forwardRef((props, ref) => {
+@@ -24,7 +25,7 @@ export const AutocompleteDropdown = memo(
+     const [selectedItem, setSelectedItem] = useState(null)
+     const [direction, setDirection] = useState(props.direction ?? 'down')
+     const [isOpened, setIsOpened] = useState(false)
+-    const [searchText, setSearchText] = useState('')
++    const [searchText, setSearchText] = useState(props.textInputProps.defaultValue ?? '')
+     const [dataSet, setDataSet] = useState(props.dataSet)
+     const clearOnFocus = props.clearOnFocus === false ? false : true
+     const inputHeight = props.inputHeight ?? moderateScale(40, 0.2)
+@@ -36,9 +37,9 @@ export const AutocompleteDropdown = memo(
+     useLayoutEffect(() => {
+       if (ref) {
+         if (typeof ref === 'function') {
+-          ref(inputRef.current)
++          ref(inputRef?.current)
+         } else {
+-          ref.current = inputRef.current
++          ref.current = inputRef?.current
+         }
+       }
+     }, [inputRef])
+@@ -78,7 +79,7 @@ export const AutocompleteDropdown = memo(
+       if (selectedItem) {
+         setSearchText(selectedItem.title ?? '')
+       } else {
+-        setSearchText('')
++        setSearchText(props.textInputProps.defaultValue ?? '')
+       }
+ 
+       if (typeof props.onSelectItem === 'function') {
+@@ -100,7 +101,7 @@ export const AutocompleteDropdown = memo(
+ 
+     const _onSelectItem = useCallback(item => {
+       setSelectedItem(item)
+-      inputRef.current.blur()
++      inputRef?.current?.blur()
+       setIsOpened(false)
+     }, [])
+ 
+@@ -119,6 +120,9 @@ export const AutocompleteDropdown = memo(
+ 
+     /** methods */
+     const close = () => {
++      if (searchText == "") {
++        setDataSet([]);
++      }
+       setIsOpened(false)
+     }
+ 
+@@ -126,8 +130,11 @@ export const AutocompleteDropdown = memo(
+       if (!props.direction) {
+         await calculateDirection()
+       }
+-
++      if (searchText == "") {
++        setDataSet([]);
++      }
+       setIsOpened(true)
++
+     }
+ 
+     const toggle = () => {
+@@ -194,10 +201,11 @@ export const AutocompleteDropdown = memo(
+     }, [props.EmptyResultComponent])
+ 
+     const onClearPress = useCallback(() => {
+-      setSearchText('')
++      setSearchText("")
++      setDataSet([])
+       setSelectedItem(null)
+       setIsOpened(false)
+-      inputRef.current.blur()
++      inputRef?.current?.blur()
+       if (typeof props.onClear === 'function') {
+         props.onClear()
+       }
+@@ -208,6 +216,7 @@ export const AutocompleteDropdown = memo(
+         if (typeof props.onChangeText === 'function') {
+           props.onChangeText(text)
+         }
++        onFocus();
+       }, props.debounce ?? 0),
+       [props.onChangeText]
+     )
+@@ -256,7 +265,7 @@ export const AutocompleteDropdown = memo(
+ 
+     const onSubmit = useCallback(
+       e => {
+-        inputRef.current.blur()
++        inputRef?.current?.blur()
+         if (props.closeOnSubmit) {
+           close()
+         }
+@@ -273,25 +282,47 @@ export const AutocompleteDropdown = memo(
+         {/* it's necessary use onLayout here for Androd (bug?) */}
+         <View
+           ref={containerRef}
+-          onLayout={_ => {}}
++          onLayout={_ => { }}
+           style={[styles.inputContainerStyle, props.inputContainerStyle]}>
+           <InputComponent
+-            ref={inputRef}
++            // ref={props.ref}
++            mode="outlined"
+             value={searchText}
+             onChangeText={onChangeText}
+             autoCorrect={false}
+             onBlur={onBlur}
+-            onFocus={onFocus}
++            // onFocus={onFocus}
+             onSubmitEditing={onSubmit}
+             placeholderTextColor="#d0d4dc"
+             {...props.textInputProps}
+             style={{
+               ...styles.Input,
+-              height: inputHeight,
++              // height: inputHeight,
+               ...(props.textInputProps ?? {}).style
+             }}
++            right={
++              <TextInput.Icon
++                style={{width:200}}
++                icon={() => (
++                  <RightButton
++                    isOpened={isOpened}
++                    inputHeight={inputHeight}
++                    onClearPress={onClearPress}
++                    onChevronPress={onChevronPress}
++                    showChevron={props.showChevron ?? true}
++                    showClear={props.showClear ?? !!searchText}
++                    loading={props.loading}
++                    buttonsContainerStyle={props.rightButtonsContainerStyle}
++                    ChevronIconComponent={props.ChevronIconComponent}
++                    ClearIconComponent={props.ClearIconComponent}
++                    RightIconComponent={props.RightIconComponent}
++                    onRightIconComponentPress={props.onRightIconComponentPress}
++                  />
++                )}
++              />
++            }
+           />
+-          <RightButton
++          {/* <RightButton
+             isOpened={isOpened}
+             inputHeight={inputHeight}
+             onClearPress={onClearPress}
+@@ -304,7 +335,7 @@ export const AutocompleteDropdown = memo(
+             ClearIconComponent={props.ClearIconComponent}
+             RightIconComponent={props.RightIconComponent}
+             onRightIconComponentPress={props.onRightIconComponentPress}
+-          />
++          /> */}
+         </View>
+         {isOpened && Array.isArray(dataSet) && (
+           <Dropdown
+@@ -370,14 +401,20 @@ const styles = ScaledSheet.create({
+     position: 'relative',
+     display: 'flex',
+     flexDirection: 'row',
+-    backgroundColor: '#e5ecf2',
++    // backgroundColor: '#e5ecf2',
+     borderRadius: 5
+   },
+   Input: {
+     flexGrow: 1,
+     flexShrink: 1,
+-    overflow: 'hidden',
+-    paddingHorizontal: 13,
++    position: "relative",
++    zIndex: 0,
++    marginVertical: 8,
++    
++    // padding:0,
++    // overflow: 'hidden',
++    // paddingHorizontal: 13,
+     fontSize: 16
+-  }
++  },
++  
+ })

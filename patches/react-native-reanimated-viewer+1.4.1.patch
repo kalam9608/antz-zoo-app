@@ -1,0 +1,15 @@
+diff --git a/node_modules/react-native-reanimated-viewer/dist/esm/index.js b/node_modules/react-native-reanimated-viewer/dist/esm/index.js
+index f44f728..e7512fe 100644
+--- a/node_modules/react-native-reanimated-viewer/dist/esm/index.js
++++ b/node_modules/react-native-reanimated-viewer/dist/esm/index.js
+@@ -115,8 +115,8 @@ var ImageViewer = forwardRef((props, ref) => {
+       if (!((_a = data[currentIndex]) == null ? void 0 : _a.key)) {
+         return {};
+       }
+-      const currentImageSize = imageSizeValue[data[currentIndex].key];
+-      const currentHeight = ((currentImageSize == null ? void 0 : currentImageSize.height) || 1) * screenDimensions.width / ((currentImageSize == null ? void 0 : currentImageSize.width) || 1);
++      const currentImageSize = imageSizeValue[data[currentIndex]?.key];
++      const currentHeight = ((currentImageSize == null ? void 0 : currentImageSize?.height) || 1) * screenDimensions.width / ((currentImageSize == null ? void 0 : currentImageSize?.width) || 1);
+       const changeHeight = _dragUpToCloseEnabled || imageYValue > 0 ? (((currentOriginalImageSize == null ? void 0 : currentOriginalImageSize.height) || 0) - screenDimensions.height) * (imageScaleValue === 1 ? -Math.abs(imageYValue) : 1) / screenDimensions.height / 3 : 0;
+       const manualWidth = Math.min(
+         screenDimensions.width,
